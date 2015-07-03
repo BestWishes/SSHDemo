@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+    <package name="com.bigbest.action" namespace="/" extends="struts-default">
+
+        <action name="login" method="userLogin" class="com.bigbest.action.UserAction">
+            <result  name="success">
+            /WEB-INF/views/welcome.jsp
+            </result>
+            <result name="error">
+            /WEB-INF/error/error.jsp
+            </result>
+        </action>
+        
+    </package>
+    
+</struts>
