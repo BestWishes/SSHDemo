@@ -9,6 +9,10 @@
 	</head>
 	<body>
 		欢迎。
-		${user.name}
+		${user.name}<br>
+		<form action="getUsers" method="post">
+			<input type="submit" name="getUsers">
+		</form>
+		
 	</body>
 </html>

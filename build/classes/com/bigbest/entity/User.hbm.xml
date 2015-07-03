@@ -10,10 +10,11 @@ default-cascade="none" >
             <column name="ID" />
             <generator class="native" />
         </id>
+        
         <property name="name" type="java.lang.String">
             <column name="NAME" />
         </property>
-        <property name="age" type="int">
+        <property name="age" type="java.lang.Integer">
             <column name="AGE" />
         </property>
         <property name="password" type="java.lang.String">

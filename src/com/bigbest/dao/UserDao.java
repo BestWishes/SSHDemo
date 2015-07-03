@@ -1,30 +1,29 @@
 package com.bigbest.dao;
 
-import org.hibernate.Query;
+import java.util.List;
+
+import org.hibernate.Criteria;
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
-import org.hibernate.cfg.Configuration;
-import org.hibernate.service.ServiceRegistry;
-import org.hibernate.service.ServiceRegistryBuilder;
+import org.hibernate.criterion.Criterion;
+import org.hibernate.criterion.Example;
+import org.hibernate.criterion.Order;
+import org.hibernate.criterion.Restrictions;
 
 import com.bigbest.entity.User;
+import com.bigbest.utils.HibernateUtil;
+import com.bigbest.utils.PageUtil;
 
 public class UserDao {
 
 	private User user=null;
-	@SuppressWarnings({ "deprecation", "unchecked" })
+	
 	public User userLogin(User user) {
-		Configuration config=new Configuration().configure();
-		ServiceRegistry serviceRegistry = 
-				new ServiceRegistryBuilder().applySettings(config.getProperties())
-				                            .buildServiceRegistry();
-		SessionFactory sessionFactory=config.buildSessionFactory(serviceRegistry);
-		Session session=sessionFactory.openSession();
-		Transaction transaction=session.beginTransaction();
-		Query query=session.createQuery("from User u where u.name=:name and u.password=:password").setString("name", user.getName()).setString("password", user.getPassword());
-		java.util.List<Object> users=query.list();
-		transaction.commit();
+		Session session=HibernateUtil.getSession();
+		Criteria criteria=session.createCriteria(User.class);
+		Criterion criterion=Restrictions.and(Restrictions.eq("name", user.getName()), Restrictions.eq("password", user.getPassword()));
+		criteria.add(criterion);
+		@SuppressWarnings("unchecked")
+		List<User> users=(List<User>)criteria.list();
 		if(!users.isEmpty()){
 			this.user=(User) users.get(0);
 		}
@@ -32,5 +31,16 @@ public class UserDao {
 		return this.user;
 	}
 	
+	@SuppressWarnings("unchecked")
+	public List<User> getUsers(User user,PageUtil page){
+		Session session=HibernateUtil.getSession();
+		Criteria criteria=session.createCriteria(User.class);
+		criteria.addOrder(Order.asc("age"));
+		criteria.setFirstResult(0);
+		criteria.setMaxResults(5);
+		List<User> users=(List<User>)criteria.add(Example.create(user)).list();
+		session.close();
+		return users;
+	}
 	
  }

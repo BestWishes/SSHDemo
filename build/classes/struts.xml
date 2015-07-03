@@ -5,6 +5,8 @@
 
 <struts>
 
+	<constant name="struts.i18n.encoding" value="UTF-8" />
+
     <package name="com.bigbest.action" namespace="/" extends="struts-default">
 
         <action name="login" method="userLogin" class="com.bigbest.action.UserAction">
@@ -15,7 +17,11 @@
             /WEB-INF/error/error.jsp
             </result>
         </action>
-        
+        <action name="getUsers" method="userList" class="com.bigbest.action.UserAction">
+            <result  name="success">
+               /WEB-INF/views/users.jsp
+            </result>
+        </action>
     </package>
     
 </struts>
