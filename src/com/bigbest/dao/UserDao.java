@@ -37,7 +37,11 @@ public class UserDao {
 		Criteria criteria=session.createCriteria(User.class);
 		criteria.addOrder(Order.asc("age"));
 		criteria.setFirstResult(0);
+<<<<<<< HEAD
 		criteria.setMaxResults(5);
+=======
+		criteria.setMaxResults(10);
+>>>>>>> origin/master
 		List<User> users=(List<User>)criteria.add(Example.create(user)).list();
 		session.close();
 		return users;

@@ -2,9 +2,17 @@ package com.bigbest.action;
 
 import java.util.ArrayList;
 import java.util.List;
+<<<<<<< HEAD
 
 import com.bigbest.dao.UserDao;
 import com.bigbest.entity.User;
+=======
+import java.util.Map;
+
+import com.bigbest.dao.UserDao;
+import com.bigbest.entity.User;
+import com.opensymphony.xwork2.ActionContext;
+>>>>>>> origin/master
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 
@@ -19,7 +27,15 @@ public class UserAction extends ActionSupport implements ModelDriven<User>{
 	private List<User> users=new ArrayList<User>(); 
 	
 	public String userLogin() {
+<<<<<<< HEAD
 		this.user=userDao.userLogin(this.user);
+=======
+		Map<String,Object> session=ActionContext.getContext().getSession();
+		Map<String,Object> application=ActionContext.getContext().getApplication();
+		this.user=userDao.userLogin(this.user);
+		application.put("applicationAcount", 10);
+		session.put("user", this.user);
+>>>>>>> origin/master
 		if(this.user!=null){
 			return SUCCESS;
 		}
