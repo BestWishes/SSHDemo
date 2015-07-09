@@ -1,12 +1,12 @@
 package com.javabasic.train;
 
 
-import com.bigbest.utils.DateUtil;
+import com.bigbest.utils.MessageUtil;
 
 public class ParsePositionTrain {
 
 	public static void main(String[] args) {
-		
-		System.out.println(DateUtil.getNowDateString());
+
+		System.err.println(MessageUtil.getMessage("userName"));
 	}
 }

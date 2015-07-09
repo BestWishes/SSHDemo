@@ -3,6 +3,7 @@ package com.bigbest.common.dao.impl;
 import org.hibernate.Session;
 
 import com.bigbest.common.dao.BaseDao;
+import com.bigbest.utils.HibernateUtil;
 
 public class BaseDaoImpl implements BaseDao {
 
@@ -18,8 +19,8 @@ public class BaseDaoImpl implements BaseDao {
 		return session;
 	}
 
-	public void setSession(Session session) {
-		this.session = session;
+	public void setSession() {
+		this.session = HibernateUtil.getSession();
 	}
 
 	public void setMessage(String message) {
