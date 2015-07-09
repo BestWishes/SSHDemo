@@ -1,4 +1,4 @@
-package com.bigbest.entity;
+package com.bigbest.common.entity;
 
 public class User {
 	Integer id;

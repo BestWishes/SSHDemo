@@ -1,4 +1,4 @@
-package com.bigbest.bean;
+package com.bigbest.main.model;
 
 public class UserBean {
 	Integer id;

@@ -1,4 +1,4 @@
-package com.bigbest.dao;
+package com.bigbest.main.dao;
 
 import java.util.List;
 
@@ -9,7 +9,7 @@ import org.hibernate.criterion.Example;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 
-import com.bigbest.entity.User;
+import com.bigbest.common.entity.User;
 import com.bigbest.utils.HibernateUtil;
 import com.bigbest.utils.PageUtil;
 

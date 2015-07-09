@@ -1,20 +1,19 @@
-package com.bigbest.action;
+package com.bigbest.main.action;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import com.bigbest.dao.UserDao;
-import com.bigbest.entity.User;
+import com.bigbest.common.action.BaseAction;
+import com.bigbest.common.entity.User;
+import com.bigbest.main.dao.UserDao;
 import com.opensymphony.xwork2.ActionContext;
-import com.opensymphony.xwork2.ActionSupport;
-import com.opensymphony.xwork2.ModelDriven;
+/**
+ * ÓÃ»§Action
+ * @author ljj
+ */
+public class UserAction extends BaseAction{
 
-public class UserAction extends ActionSupport implements ModelDriven<User>{
-
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 2420011513200970457L;
 	private static UserDao userDao=new UserDao();
 	private User user=new User();
@@ -47,10 +46,6 @@ public class UserAction extends ActionSupport implements ModelDriven<User>{
 		this.user = user;
 	}
 	
-	@Override
-	public User getModel() {
-		return this.user;
-	}
 	public List<User> getUsers() {
 		return users;
 	}
