@@ -8,7 +8,9 @@ import com.bigbest.common.action.BaseAction;
 import com.bigbest.common.entity.User;
 import com.bigbest.main.dao.UserDao;
 import com.bigbest.utils.MessageUtil;
+import com.bigbest.utils.mapper.JsonMapper;
 import com.opensymphony.xwork2.ActionContext;
+import com.opensymphony.xwork2.util.ValueStack;
 /**
  * ÓÃ»§Action
  * @author ljj
@@ -23,6 +25,7 @@ public class UserAction extends BaseAction{
 	private String password;
 
 	public String userLogin() {
+
 		this.user.setName(name);
 		this.user.setPassword(password);
 		this.user=userDao.userLogin(this.user);
@@ -31,8 +34,8 @@ public class UserAction extends BaseAction{
 		Map<String, Object> request=(Map<String, Object>) ActionContext.getContext().get("request");
 		application.put("applicationAcount", 10);
 		session.put("user", this.user);
-		session.put("message", MessageUtil.getMessage("userName"));
-		request.put("requestkey", "requestvalue");
+		session.put("json", JsonMapper.nonEmptyMapper().toJson(this.user));
+		session.put("message", MessageUtil.getMessage("userName"));		
 		if(this.user!=null){
 			return SUCCESS;
 		}

@@ -13,7 +13,9 @@
 	欢迎。${session.get("user").name}<br>
 	全局变量：${application.get("applicationAcount")}<br>
 	会话变量：<%=session.getAttribute("user") %><br>
-	当前用户数量：${users.size() }<br>
+	当前用户数量：${users.size()}<br>
+	<s:property value="session.json"/>
+	<br>
 	<%=request.getLocale()%><br>
 	tips:<s:property value="session.message"></s:property>
 		<table>
