@@ -9,7 +9,7 @@
 
     <package name="com.bigbest.action" namespace="/" extends="struts-default">
 
-        <action name="login" method="userLogin" class="com.bigbest.action.UserAction">
+        <action name="login" method="userLogin" class="com.bigbest.main.action.UserAction">
             <result  name="success">
             /WEB-INF/views/welcome.jsp
             </result>
@@ -17,7 +17,7 @@
             /WEB-INF/error/error.jsp
             </result>
         </action>
-        <action name="getUsers" method="userList" class="com.bigbest.action.UserAction">
+        <action name="getUsers" method="userList" class="com.bigbest.main.action.UserAction">
             <result  name="success">
                /WEB-INF/views/users.jsp
             </result>

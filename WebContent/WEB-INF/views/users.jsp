@@ -8,6 +8,7 @@
 <title>struts2 demo page</title>
 </head>
 <body>
+<s:debug></s:debug>
 	欢迎。${session.get("user").name}<br>
 	全局变量：${application.get("applicationAcount")}<br>
 	会话变量：<%=session.getAttribute("user") %><br>

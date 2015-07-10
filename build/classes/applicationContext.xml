@@ -16,10 +16,10 @@
 		<property name="jdbcUrl" value="${jdbc.jdbcUrl}"></property>		
 		<property name="driverClass" value="${jdbc.driverClass}"></property>		
 	</bean>
-	<bean id="userDao" class="com.bigbest.dao.UserDao" init-method="init_m" destroy-method="destory_m">
+	<bean id="userDao" class="com.bigbest.main.dao.UserDao" init-method="init_m" destroy-method="destory_m">
 		<property name="user" ref="user"></property>
 	</bean>
-	<bean id="user" class="com.bigbest.entity.User">
+	<bean id="user" class="com.bigbest.common.entity.User">
 		<property name="age" value="#{'123'}"></property>
 		<property name="id" value="#{T(java.lang.Math).PI}"></property>	
 	</bean>
