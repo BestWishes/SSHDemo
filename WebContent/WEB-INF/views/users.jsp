@@ -1,3 +1,4 @@
+<%@page import="com.bigbest.utils.MessageUtil"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="s" uri="/struts-tags" %>
@@ -13,6 +14,8 @@
 	全局变量：${application.get("applicationAcount")}<br>
 	会话变量：<%=session.getAttribute("user") %><br>
 	当前用户数量：${users.size() }<br>
+	<%=request.getLocale()%><br>
+	tips:<s:property value="session.message"></s:property>
 		<table>
 		<caption>用户列表</caption>
 		<tr>		

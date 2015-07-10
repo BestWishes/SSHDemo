@@ -7,6 +7,7 @@ import java.util.Map;
 import com.bigbest.common.action.BaseAction;
 import com.bigbest.common.entity.User;
 import com.bigbest.main.dao.UserDao;
+import com.bigbest.utils.MessageUtil;
 import com.opensymphony.xwork2.ActionContext;
 /**
  * ÓÃ»§Action
@@ -18,14 +19,20 @@ public class UserAction extends BaseAction{
 	private static UserDao userDao=new UserDao();
 	private User user=new User();
 	private List<User> users=new ArrayList<User>(); 
-	
+	private String name;
+	private String password;
+
 	public String userLogin() {
+		this.user.setName(name);
+		this.user.setPassword(password);
 		this.user=userDao.userLogin(this.user);
 		Map<String,Object> session=ActionContext.getContext().getSession();
 		Map<String,Object> application=ActionContext.getContext().getApplication();
-		this.user=userDao.userLogin(this.user);
+		Map<String, Object> request=(Map<String, Object>) ActionContext.getContext().get("request");
 		application.put("applicationAcount", 10);
 		session.put("user", this.user);
+		session.put("message", MessageUtil.getMessage("userName"));
+		request.put("requestkey", "requestvalue");
 		if(this.user!=null){
 			return SUCCESS;
 		}
@@ -33,6 +40,7 @@ public class UserAction extends BaseAction{
 	}
 	
 	public String userList() {
+		
 		this.users=userDao.getUsers(this.user, null);
 		return SUCCESS;
 	}
@@ -51,5 +59,29 @@ public class UserAction extends BaseAction{
 	}
 	public void setUsers(List<User> users) {
 		this.users = users;
+	}
+
+	public static UserDao getUserDao() {
+		return userDao;
+	}
+
+	public static void setUserDao(UserDao userDao) {
+		UserAction.userDao = userDao;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
 }

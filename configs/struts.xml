@@ -7,7 +7,7 @@
 
 	<constant name="struts.i18n.encoding" value="UTF-8" />
 
-    <package name="com.bigbest.action" namespace="/" extends="struts-default">
+    <package name="com.bigbest.main.action" namespace="/" extends="struts-default">
 
         <action name="login" method="userLogin" class="com.bigbest.main.action.UserAction">
             <result  name="success">
