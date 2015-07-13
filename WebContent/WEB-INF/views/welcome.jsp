@@ -16,12 +16,11 @@
 		<tr>		
 			<th>编号:</th><th>姓名:</th><th>年龄:</th><th>密码:</th>
 		</tr>
-		<s:iterator id="user" value="users"></s:iterator>
 		<tr>
-			<td><s:property value="#user.id"/></td>
-			<td><s:property value="#user.name"/> </td>
-			<td><s:property value="#user.age"/> </td>
-			<td><s:property value="#user.password"/> </td>
+			<td><s:property value="session.user.id"/></td>
+			<td><s:property value="session.user.name"/> </td>
+			<td><s:property value="session.user.age"/> </td>
+			<td><s:property value="session.user.password"/> </td>
 		</tr>
 		
 		</table>

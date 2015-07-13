@@ -8,9 +8,9 @@
 	<!-- 加载外部文件 -->
 	<context:property-placeholder location="classpath:db.properties"/>
 	<!-- 配置spring扫描的包 -->
-	<context:component-scan base-package="com.bigbest" resource-pattern=""  use-default-filters="true">
+	<context:component-scan base-package="com.bigbest"  use-default-filters="true">
 		<!-- 配置需要排除的bean -->
-		<context:exclude-filter type="annotation" expression=""/>
+<!-- 		<context:exclude-filter type="annotation" expression=""/> -->
 	</context:component-scan>
 	
 	<!-- 配置数据源 -->
@@ -21,9 +21,8 @@
 		<property name="driverClass" value="${jdbc.driverClass}"></property>		
 	</bean>
 	<!-- 用户Dao -->
-	<bean id="userDao" class="com.bigbest.main.dao.UserDao" init-method="init_m" destroy-method="destory_m">
-		<property name="user" ref="user"></property>
-	</bean>
+<!-- 	<bean id="userDao" class="com.bigbest.main.dao.UserDao" > -->
+<!-- 	</bean> -->
 
 	<!-- spring统一日志处理LogInterceptorpei 配置 -->
 	<bean id="logInterceptor" class="com.bigbest.common.log.LogIntecepter"></bean>
@@ -32,20 +31,20 @@
 	<bean id="exceptionHandler" class="com.bigbest.common.exception.ExceptionAdvisor" ></bean>
 	
 	<!-- bean自动代理处理器配置 -->
-	<bean class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">
-		<property name="beanNames">
-			<list>
-				<value>*Dao</value>
-				<value>*Service</value>
-				<value>*Action</value>
-			</list>
-		</property>
-		<property name="interceptor">
-			<list>
-				<value>exceptionHandler</value>
-				<value>logInterceptor</value>
-			</list>
-		</property>
-	</bean>
+<!-- 	<bean class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator"> -->
+<!-- 		<property name="beanNames"> -->
+<!-- 			<list> -->
+<!-- 				<value>*Dao</value> -->
+<!-- 				<value>*Service</value> -->
+<!-- 				<value>*Action</value> --> 
+<!-- 			</list> -->
+<!-- 		</property> -->
+<!-- 		<property name="interceptor"> -->
+<!-- 			<list> -->
+<!-- 				<value>exceptionHandler</value> -->
+<!-- 				<value>logInterceptor</value> -->
+<!-- 			</list> -->
+<!-- 		</property> -->
+<!-- 	</bean> -->
 	
 </beans>

@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.log4j.Logger;
+
 import com.bigbest.common.action.BaseAction;
 import com.bigbest.common.entity.User;
 import com.bigbest.main.dao.UserDao;
@@ -12,12 +14,13 @@ import com.bigbest.utils.mapper.JsonMapper;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.util.ValueStack;
 /**
- * 鐢ㄦ埛Action
+ * 用户Action
  * @author ljj
  */
 public class UserAction extends BaseAction{
 
 	private static final long serialVersionUID = 2420011513200970457L;
+	private static Logger logger=Logger.getLogger(User.class);
 	private static UserDao userDao=new UserDao();
 	private User user=new User();
 	private List<User> users=new ArrayList<User>(); 
@@ -25,7 +28,7 @@ public class UserAction extends BaseAction{
 	private String password;
 
 	public String userLogin() {
-
+		logger.error("log4j开始.");
 		this.user.setName(name);
 		this.user.setPassword(password);
 		this.user=userDao.userLogin(this.user);
@@ -39,6 +42,7 @@ public class UserAction extends BaseAction{
 		if(this.user!=null){
 			return SUCCESS;
 		}
+		
 		return ERROR;
 	}
 	

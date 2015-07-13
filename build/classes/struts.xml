@@ -17,7 +17,7 @@
             /WEB-INF/error/error.jsp
             </result>
         </action>
-        <action name="getUsers" method="userList" class="com.bigbest.main.action.UserAction">
+        <action name="getUsers" method="userList" class="com.bigbest.main.action.UserAction" >
             <result  name="success">
                /WEB-INF/views/users.jsp
             </result>
