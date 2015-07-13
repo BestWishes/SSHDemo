@@ -10,13 +10,12 @@
 </head>
 <body>
 <s:debug></s:debug>
-	欢迎。${session.get("user").name}<br>
-	全局变量：${application.get("applicationAcount")}<br>
-	会话变量：<%=session.getAttribute("user") %><br>
-	当前用户数量：${users.size()}<br>
-	<s:property value="session.json"/>
+<%-- 	${application}<br> --%>
+<%-- 	${request }<br> --%>
+	1:<s:property value="#session"/><br>
+	2:<s:property value="#session.json"/>
 	<br>
-	<%=request.getLocale()%><br>
+	3:<%=request.getLocale()%><br>
 	tips:<s:property value="session.message"></s:property>
 		<table>
 		<caption>用户列表</caption>
@@ -32,6 +31,15 @@
 		</tr>
 		</s:iterator>
 		</table>
-		struts2标签获取属性：<s:property value="#session.user.name"/>	
+		struts2标签获取属性：<s:property value="#session.user.name"/>	<br>
+		<s:url value="/index.jsp" var="url1">
+			<s:param name="user" value="'123'"></s:param>
+		</s:url>
+		s:url:${indexurl }	
+		<s:url action="login" method="post" namespace="/" includeParams="all" var="url2" > </s:url>
+		${url2 }
+		<br>
+		<s:url var="url3" includeParams="all"></s:url>
+		${url3 }
 </body>
 </html>

@@ -12,7 +12,7 @@ import com.bigbest.utils.mapper.JsonMapper;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.util.ValueStack;
 /**
- * ÓÃ»§Action
+ * ç”¨æˆ·Action
  * @author ljj
  */
 public class UserAction extends BaseAction{
